@@ -1,0 +1,24 @@
+﻿<Window x:Class="TothBence_torpedo.P2P"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TothBence_torpedo"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Torpedo Game" Height="200" Width="200">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Margin="10" Grid.Row="0">
+            <Label Content="Player 1:"/>
+            <TextBox x:Name="P1" Margin="5" Keyboard.KeyDown="P1_KeyDown"/>
+            <Label Content="Player 2:"/>
+            <TextBox x:Name="P2" Margin="5" Keyboard.KeyDown="P2_KeyDown"/>
+        </StackPanel>
+        <Button Content="Start!" Margin="0,0,10,0" Width="50" Height="20" HorizontalAlignment="Right" Click="Start_Button_Clicked" Grid.Row="1"/>
+        <Button Content="Back" Margin="10,0,0,0" Width="50" Height="20" HorizontalAlignment="Left" Click="Back_Button_Clicked" Grid.Row="1"/>
+    </Grid>
+</Window>

@@ -1,0 +1,928 @@
+﻿<Window x:Class="TothBence_torpedo.Game"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TothBence_torpedo"
+        mc:Ignorable="d"
+        Closed="Window_Closed"
+        WindowStartupLocation="CenterScreen"
+        Title="Game" Height="400" Width="1000">
+    <Grid Background="Aqua" Keyboard.KeyDown="Grid_KeyDown" Keyboard.KeyUp="Grid_KeyUp">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Margin="20" Name="Player1Grid" ShowGridLines="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GA1" Grid.Column="0" Grid.Row="0" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CA1"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GA2" Grid.Column="0" Grid.Row="1" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CA2"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GA3" Grid.Column="0" Grid.Row="2" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CA3"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GA4" Grid.Column="0" Grid.Row="3" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CA4"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GA5" Grid.Column="0" Grid.Row="4" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CA5"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GA6" Grid.Column="0" Grid.Row="5" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CA6"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GA7" Grid.Column="0" Grid.Row="6" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CA7"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GA8" Grid.Column="0" Grid.Row="7" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CA8"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GA9" Grid.Column="0" Grid.Row="8" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CA9"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GA10" Grid.Column="0" Grid.Row="9" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CA10"/>
+            </Grid>
+
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GB1" Grid.Column="1" Grid.Row="0" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CB1"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GB2" Grid.Column="1" Grid.Row="1" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CB2"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GB3" Grid.Column="1" Grid.Row="2" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CB3"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GB4" Grid.Column="1" Grid.Row="3" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CB4"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GB5" Grid.Column="1" Grid.Row="4" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CB5"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GB6" Grid.Column="1" Grid.Row="5" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CB6"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GB7" Grid.Column="1" Grid.Row="6" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CB7"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GB8" Grid.Column="1" Grid.Row="7" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CB8"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GB9" Grid.Column="1" Grid.Row="8" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CB9"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GB10" Grid.Column="1" Grid.Row="9" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CB10"/>
+            </Grid>
+
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GC1" Grid.Column="2" Grid.Row="0" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CC1"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GC2" Grid.Column="2" Grid.Row="1" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CC2"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GC3" Grid.Column="2" Grid.Row="2" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CC3"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GC4" Grid.Column="2" Grid.Row="3" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CC4"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GC5" Grid.Column="2" Grid.Row="4" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CC5"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GC6" Grid.Column="2" Grid.Row="5" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CC6"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GC7" Grid.Column="2" Grid.Row="6" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CC7"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GC8" Grid.Column="2" Grid.Row="7" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CC8"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GC9" Grid.Column="2" Grid.Row="8" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CC9"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GC10" Grid.Column="2" Grid.Row="9" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CC10"/>
+            </Grid>
+
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GD1" Grid.Column="3" Grid.Row="0" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CD1"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GD2" Grid.Column="3" Grid.Row="1" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CD2"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GD3" Grid.Column="3" Grid.Row="2" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CD3"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GD4" Grid.Column="3" Grid.Row="3" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CD4"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GD5" Grid.Column="3" Grid.Row="4" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CD5"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GD6" Grid.Column="3" Grid.Row="5" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CD6"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GD7" Grid.Column="3" Grid.Row="6" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CD7"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GD8" Grid.Column="3" Grid.Row="7" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CD8"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GD9" Grid.Column="3" Grid.Row="8" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CD9"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GD10" Grid.Column="3" Grid.Row="9" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CD10"/>
+            </Grid>
+
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GE1" Grid.Column="4" Grid.Row="0" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CE1"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GE2" Grid.Column="4" Grid.Row="1" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CE2"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GE3" Grid.Column="4" Grid.Row="2" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CE3"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GE4" Grid.Column="4" Grid.Row="3" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CE4"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GE5" Grid.Column="4" Grid.Row="4" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CE5"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GE6" Grid.Column="4" Grid.Row="5" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CE6"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GE7" Grid.Column="4" Grid.Row="6" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CE7"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GE8" Grid.Column="4" Grid.Row="7" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CE8"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GE9" Grid.Column="4" Grid.Row="8" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CE9"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GE10" Grid.Column="4" Grid.Row="9" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CE10"/>
+            </Grid>
+
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GF1" Grid.Column="5" Grid.Row="0" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CF1"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GF2" Grid.Column="5" Grid.Row="1" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CF2"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GF3" Grid.Column="5" Grid.Row="2" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CF3"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GF4" Grid.Column="5" Grid.Row="3" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CF4"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GF5" Grid.Column="5" Grid.Row="4" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CF5"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GF6" Grid.Column="5" Grid.Row="5" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CF6"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GF7" Grid.Column="5" Grid.Row="6" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CF7"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GF8" Grid.Column="5" Grid.Row="7" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CF8"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GF9" Grid.Column="5" Grid.Row="8" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CF9"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GF10" Grid.Column="5" Grid.Row="9" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CF10"/>
+            </Grid>
+
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GG1" Grid.Column="6" Grid.Row="0" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CG1"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GG2" Grid.Column="6" Grid.Row="1" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CG2"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GG3" Grid.Column="6" Grid.Row="2" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CG3"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GG4" Grid.Column="6" Grid.Row="3" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CG4"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GG5" Grid.Column="6" Grid.Row="4" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CG5"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GG6" Grid.Column="6" Grid.Row="5" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CG6"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GG7" Grid.Column="6" Grid.Row="6" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CG7"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GG8" Grid.Column="6" Grid.Row="7" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CG8"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GG9" Grid.Column="6" Grid.Row="8" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CG9"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GG10" Grid.Column="6" Grid.Row="9" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CG10"/>
+            </Grid>
+
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GH1" Grid.Column="7" Grid.Row="0" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CH1"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GH2" Grid.Column="7" Grid.Row="1" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CH2"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GH3" Grid.Column="7" Grid.Row="2" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CH3"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GH4" Grid.Column="7" Grid.Row="3" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CH4"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GH5" Grid.Column="7" Grid.Row="4" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CH5"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GH6" Grid.Column="7" Grid.Row="5" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CH6"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GH7" Grid.Column="7" Grid.Row="6" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CH7"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GH8" Grid.Column="7" Grid.Row="7" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CH8"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GH9" Grid.Column="7" Grid.Row="8" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CH9"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GH10" Grid.Column="7" Grid.Row="9" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CH10"/>
+            </Grid>
+
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GI1" Grid.Column="8" Grid.Row="0" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CI1"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GI2" Grid.Column="8" Grid.Row="1" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CI2"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GI3" Grid.Column="8" Grid.Row="2" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CI3"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GI4" Grid.Column="8" Grid.Row="3" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CI4"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GI5" Grid.Column="8" Grid.Row="4" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CI5"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GI6" Grid.Column="8" Grid.Row="5" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CI6"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GI7" Grid.Column="8" Grid.Row="6" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CI7"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GI8" Grid.Column="8" Grid.Row="7" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CI8"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GI9" Grid.Column="8" Grid.Row="8" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CI9"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GI10" Grid.Column="8" Grid.Row="9" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CI10"/>
+            </Grid>
+
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GJ1" Grid.Column="9" Grid.Row="0" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CJ1"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GJ2" Grid.Column="9" Grid.Row="1" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CJ2"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GJ3" Grid.Column="9" Grid.Row="2" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CJ3"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GJ4" Grid.Column="9" Grid.Row="3" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CJ4"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GJ5" Grid.Column="9" Grid.Row="4" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CJ5"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GJ6" Grid.Column="9" Grid.Row="5" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CJ6"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GJ7" Grid.Column="9" Grid.Row="6" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CJ7"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GJ8" Grid.Column="9" Grid.Row="7" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CJ8"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GJ9" Grid.Column="9" Grid.Row="8" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CJ9"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P1GJ10" Grid.Column="9" Grid.Row="9" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P1CJ10"/>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Column="1" Margin="20" Name="Player2Grid" ShowGridLines="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GA1" Grid.Column="0" Grid.Row="0" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CA1"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GA2" Grid.Column="0" Grid.Row="1" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CA2"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GA3" Grid.Column="0" Grid.Row="2" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CA3"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GA4" Grid.Column="0" Grid.Row="3" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CA4"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GA5" Grid.Column="0" Grid.Row="4" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CA5"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GA6" Grid.Column="0" Grid.Row="5" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CA6"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GA7" Grid.Column="0" Grid.Row="6" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CA7"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GA8" Grid.Column="0" Grid.Row="7" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CA8"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GA9" Grid.Column="0" Grid.Row="8" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CA9"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GA10" Grid.Column="0" Grid.Row="9" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CA10"/>
+            </Grid>
+
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GB1" Grid.Column="1" Grid.Row="0" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CB1"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GB2" Grid.Column="1" Grid.Row="1" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CB2"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GB3" Grid.Column="1" Grid.Row="2" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CB3"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GB4" Grid.Column="1" Grid.Row="3" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CB4"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GB5" Grid.Column="1" Grid.Row="4" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CB5"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GB6" Grid.Column="1" Grid.Row="5" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CB6"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GB7" Grid.Column="1" Grid.Row="6" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CB7"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GB8" Grid.Column="1" Grid.Row="7" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CB8"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GB9" Grid.Column="1" Grid.Row="8" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CB9"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GB10" Grid.Column="1" Grid.Row="9" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CB10"/>
+            </Grid>
+
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GC1" Grid.Column="2" Grid.Row="0" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CC1"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GC2" Grid.Column="2" Grid.Row="1" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CC2"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GC3" Grid.Column="2" Grid.Row="2" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CC3"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GC4" Grid.Column="2" Grid.Row="3" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CC4"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GC5" Grid.Column="2" Grid.Row="4" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CC5"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GC6" Grid.Column="2" Grid.Row="5" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CC6"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GC7" Grid.Column="2" Grid.Row="6" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CC7"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GC8" Grid.Column="2" Grid.Row="7" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CC8"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GC9" Grid.Column="2" Grid.Row="8" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CC9"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GC10" Grid.Column="2" Grid.Row="9" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CC10"/>
+            </Grid>
+
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GD1" Grid.Column="3" Grid.Row="0" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CD1"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GD2" Grid.Column="3" Grid.Row="1" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CD2"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GD3" Grid.Column="3" Grid.Row="2" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CD3"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GD4" Grid.Column="3" Grid.Row="3" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CD4"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GD5" Grid.Column="3" Grid.Row="4" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CD5"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GD6" Grid.Column="3" Grid.Row="5" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CD6"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GD7" Grid.Column="3" Grid.Row="6" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CD7"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GD8" Grid.Column="3" Grid.Row="7" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CD8"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GD9" Grid.Column="3" Grid.Row="8" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CD9"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GD10" Grid.Column="3" Grid.Row="9" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CD10"/>
+            </Grid>
+
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GE1" Grid.Column="4" Grid.Row="0" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CE1"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GE2" Grid.Column="4" Grid.Row="1" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CE2"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GE3" Grid.Column="4" Grid.Row="2" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CE3"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GE4" Grid.Column="4" Grid.Row="3" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CE4"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GE5" Grid.Column="4" Grid.Row="4" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CE5"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GE6" Grid.Column="4" Grid.Row="5" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CE6"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GE7" Grid.Column="4" Grid.Row="6" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CE7"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GE8" Grid.Column="4" Grid.Row="7" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CE8"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GE9" Grid.Column="4" Grid.Row="8" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CE9"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GE10" Grid.Column="4" Grid.Row="9" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CE10"/>
+            </Grid>
+
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GF1" Grid.Column="5" Grid.Row="0" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CF1"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GF2" Grid.Column="5" Grid.Row="1" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CF2"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GF3" Grid.Column="5" Grid.Row="2" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CF3"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GF4" Grid.Column="5" Grid.Row="3" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CF4"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GF5" Grid.Column="5" Grid.Row="4" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CF5"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GF6" Grid.Column="5" Grid.Row="5" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CF6"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GF7" Grid.Column="5" Grid.Row="6" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CF7"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GF8" Grid.Column="5" Grid.Row="7" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CF8"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GF9" Grid.Column="5" Grid.Row="8" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CF9"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GF10" Grid.Column="5" Grid.Row="9" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CF10"/>
+            </Grid>
+
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GG1" Grid.Column="6" Grid.Row="0" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CG1"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GG2" Grid.Column="6" Grid.Row="1" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CG2"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GG3" Grid.Column="6" Grid.Row="2" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CG3"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GG4" Grid.Column="6" Grid.Row="3" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CG4"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GG5" Grid.Column="6" Grid.Row="4" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CG5"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GG6" Grid.Column="6" Grid.Row="5" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CG6"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GG7" Grid.Column="6" Grid.Row="6" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CG7"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GG8" Grid.Column="6" Grid.Row="7" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CG8"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GG9" Grid.Column="6" Grid.Row="8" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CG9"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GG10" Grid.Column="6" Grid.Row="9" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CG10"/>
+            </Grid>
+
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GH1" Grid.Column="7" Grid.Row="0" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CH1"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GH2" Grid.Column="7" Grid.Row="1" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CH2"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GH3" Grid.Column="7" Grid.Row="2" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CH3"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GH4" Grid.Column="7" Grid.Row="3" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CH4"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GH5" Grid.Column="7" Grid.Row="4" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CH5"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GH6" Grid.Column="7" Grid.Row="5" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CH6"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GH7" Grid.Column="7" Grid.Row="6" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CH7"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GH8" Grid.Column="7" Grid.Row="7" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CH8"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GH9" Grid.Column="7" Grid.Row="8" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CH9"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GH10" Grid.Column="7" Grid.Row="9" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CH10"/>
+            </Grid>
+
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GI1" Grid.Column="8" Grid.Row="0" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CI1"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GI2" Grid.Column="8" Grid.Row="1" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CI2"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GI3" Grid.Column="8" Grid.Row="2" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CI3"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GI4" Grid.Column="8" Grid.Row="3" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CI4"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GI5" Grid.Column="8" Grid.Row="4" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CI5"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GI6" Grid.Column="8" Grid.Row="5" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CI6"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GI7" Grid.Column="8" Grid.Row="6" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CI7"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GI8" Grid.Column="8" Grid.Row="7" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CI8"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GI9" Grid.Column="8" Grid.Row="8" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CI9"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GI10" Grid.Column="8" Grid.Row="9" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CI10"/>
+            </Grid>
+
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GJ1" Grid.Column="9" Grid.Row="0" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CJ1"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GJ2" Grid.Column="9" Grid.Row="1" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CJ2"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GJ3" Grid.Column="9" Grid.Row="2" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CJ3"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GJ4" Grid.Column="9" Grid.Row="3" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CJ4"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GJ5" Grid.Column="9" Grid.Row="4" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CJ5"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GJ6" Grid.Column="9" Grid.Row="5" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CJ6"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GJ7" Grid.Column="9" Grid.Row="6" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CJ7"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GJ8" Grid.Column="9" Grid.Row="7" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CJ8"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GJ9" Grid.Column="9" Grid.Row="8" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CJ9"/>
+            </Grid>
+            <Grid MouseDown="Rectangle_MouseDown" Name="P2GJ10" Grid.Column="9" Grid.Row="9" Background="White">
+                <Rectangle MouseDown="Rectangle_MouseDown"/>
+                <Path Name="P2CJ10"/>
+            </Grid>
+        </Grid>
+
+        <Label FontSize="22" Margin="20, -10, 20, 0" Content=" A    B    C    D    E    F    G    H    I    J" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Label FontSize="22" Margin="0, 15, 0, 0" Content="1" Grid.Column="0" HorizontalAlignment="Left"/>
+        <Label FontSize="22" Margin="0, 50, 0, 0" Content="2" Grid.Column="0" HorizontalAlignment="Left"/>
+        <Label FontSize="22" Margin="0, 85, 0, 0" Content="3" Grid.Column="0" HorizontalAlignment="Left"/>
+        <Label FontSize="22" Margin="0, 115, 0, 0" Content="4" Grid.Column="0" HorizontalAlignment="Left"/>
+        <Label FontSize="22" Margin="0, 145, 0, 0" Content="5" Grid.Column="0" HorizontalAlignment="Left"/>
+        <Label FontSize="22" Margin="0, 180, 0, 0" Content="6" Grid.Column="0" HorizontalAlignment="Left"/>
+        <Label FontSize="22" Margin="0, 215, 0, 0" Content="7" Grid.Column="0" HorizontalAlignment="Left"/>
+        <Label FontSize="22" Margin="0, 245, 0, 0" Content="8" Grid.Column="0" HorizontalAlignment="Left"/>
+        <Label FontSize="22" Margin="0, 280, 0, 0" Content="9" Grid.Column="0" HorizontalAlignment="Left"/>
+        <Label FontSize="22" Margin="-10, 310, 0, 0" Content="10" Grid.Column="0" HorizontalAlignment="Left"/>
+        
+        <Label FontSize="22" Margin="20, -10, 20, 0" Content=" A    B    C    D    E    F    G    H    I    J" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Label FontSize="22" Margin="0, 15, 0, 0" Content="1" Grid.Column="1" HorizontalAlignment="Left"/>
+        <Label FontSize="22" Margin="0, 50, 0, 0" Content="2" Grid.Column="1" HorizontalAlignment="Left"/>
+        <Label FontSize="22" Margin="0, 85, 0, 0" Content="3" Grid.Column="1" HorizontalAlignment="Left"/>
+        <Label FontSize="22" Margin="0, 115, 0, 0" Content="4" Grid.Column="1" HorizontalAlignment="Left"/>
+        <Label FontSize="22" Margin="0, 145, 0, 0" Content="5" Grid.Column="1" HorizontalAlignment="Left"/>
+        <Label FontSize="22" Margin="0, 180, 0, 0" Content="6" Grid.Column="1" HorizontalAlignment="Left"/>
+        <Label FontSize="22" Margin="0, 215, 0, 0" Content="7" Grid.Column="1" HorizontalAlignment="Left"/>
+        <Label FontSize="22" Margin="0, 245, 0, 0" Content="8" Grid.Column="1" HorizontalAlignment="Left"/>
+        <Label FontSize="22" Margin="0, 280, 0, 0" Content="9" Grid.Column="1" HorizontalAlignment="Left"/>
+        <Label FontSize="22" Margin="-10, 310, 0, 0" Content="10" Grid.Column="1" HorizontalAlignment="Left"/>
+        
+        <StackPanel Grid.Column="2" Background="White">
+            <Label x:Name="P1Label" Content=""/>
+            <Label x:Name="P1Hits" Content=""/>
+            <Label x:Name="P1Points" HorizontalAlignment="Right"/>
+            <Label x:Name="P2Label" Content=""/>
+            <Label x:Name="P2Hits" Content=""/>
+            <Label x:Name="P2Points" HorizontalAlignment="Right"/>
+            <Button x:Name="StartButton" Content="Start" Margin="50, 170, 50, 0" Click="Start_Button_Click"/>
+            <Button x:Name="NextButton" Content="Next player" Margin="50, 0, 50, 0" Click="Next_Button_Click" Opacity="0"/>
+            <Label x:Name="turns" Content="" HorizontalAlignment="Center" Margin="20"/>
+        </StackPanel>
+    </Grid>
+</Window>
