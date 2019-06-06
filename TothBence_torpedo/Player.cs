@@ -28,9 +28,9 @@
 
         public Player( string name)
         {
-            this.Name = name;
-            this._score = 0;
-            this._table = new string[100];
+            _name = name;
+            _score = 0;
+            _table = new string[100];
         }
     }
 }

@@ -79,13 +79,17 @@ namespace TothBence_torpedo
 
             while (_placedShips != 5)
             {
-                if (new Random().Next(0, 2) == 0)
+                //horizontal vagy vertical
+                int i = new Random().Next(0, 101);
+                if (new Random().Next(0, 2) == 0 && CanPlaceShip(i, Orientation.Horizontal))
                 {
-                    int i = new Random().Next(0, 101);
-
-                    //place if possible
-                    //_placedShips++;
-
+                    PlaceShip(i, Orientation.Horizontal);
+                    _placedShips++;
+                }
+                else if (CanPlaceShip(i, Orientation.Vertical))
+                {
+                    PlaceShip(i, Orientation.Vertical);
+                    _placedShips++;
                 }
             }
 
@@ -94,7 +98,120 @@ namespace TothBence_torpedo
                 _p2.Table[i] = _playerGrid[i].Tag.ToString();
             }
         }
-        
+
+        private void PlaceShip(int index, Orientation orientation)
+        {
+            if (orientation == Orientation.Horizontal)
+            {
+                //sorvége és eleje
+                if (((_length - 1) > ((index + _length - 1) % 10)))
+                {
+                    index -= (index + _length) % 10;
+                }
+
+                for (int i = 0; i < _length; i++)
+                {
+                    _playerGrid[index + i].Tag = _ship;
+                    _playerGrid[index + i].Background = new SolidColorBrush(Colors.Green);
+                }
+            }
+            else
+            {
+                //oszlopvége és eleje
+                if (((_length - 1) > (index + ((_length - 1) * 10))))
+                {
+                    index -= ((index + _length) * 10);
+                }
+
+                for (int i = 0; i < _length; i++)
+                {
+                    _playerGrid[index + (i * 10)].Tag = _ship;
+                    _playerGrid[index + (i * 10)].Background = new SolidColorBrush(Colors.Green);
+                }       
+            }
+        }
+
+        private bool CanPlaceShip(int index, Orientation orientation)
+        {
+            int backwardCounter, forwardCounter;
+            if (orientation == Orientation.Horizontal)
+            {
+                try
+                {
+                    backwardCounter = 0;
+                    forwardCounter = 0;
+
+                    for (int i = 0; (backwardCounter + forwardCounter) < _length; i++)
+                    {
+                        if (index + i < 100 && (_playerGrid[index + i].Tag.Equals("0")))
+                        {
+                            forwardCounter++;
+                            continue;
+                        }
+                        else if ((_playerGrid[index - i].Tag.Equals("0")))
+                        {
+                            backwardCounter++;
+                        }
+                    }
+
+                    //Console.WriteLine(backwardCounter + "  " + forwardCounter);
+
+                    //van-e elég hely
+                    if (forwardCounter + backwardCounter < _length)
+                    {
+                        throw new IndexOutOfRangeException("Invalid placement!");
+                    }
+
+                    index -= backwardCounter;
+
+                    return true;
+                    
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Cannot place ship here");
+                    return false;
+                }
+            }
+            else
+            {
+                try
+                {
+                    backwardCounter = 0;
+                    forwardCounter = 0;
+
+                    for (int i = 0; (backwardCounter + forwardCounter) < _length; i++)
+                    {
+                        if (index + (i * 10) < 100 && (_playerGrid[index + (i * 10)].Tag.Equals("0")))
+                        {
+                            forwardCounter++;
+                            continue;
+                        }
+                        else if ((_playerGrid[index - (i * 10)].Tag.Equals("0")))
+                        {
+                            backwardCounter++;
+                        }
+                    }
+
+                    //van-e elég hely
+                    if (forwardCounter + backwardCounter < _length)
+                    {
+                        throw new IndexOutOfRangeException("Invalid placement!");
+                    }
+
+                    index -= (backwardCounter * 10);
+
+                    return true;
+
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Cannot place ship here");
+                    return false;
+                }
+            }
+        }
+
         private void Done_Button_Click(object sender, RoutedEventArgs e)
         {
             if (_p2.Name == "AI")
