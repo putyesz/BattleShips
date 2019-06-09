@@ -23,29 +23,29 @@ namespace TothBence_torpedo
         private Path _selectedShip;
         private Path[] _ships;
 
-        private Grid[] _playerGrid;
+        private Grid[,] _playerGrid;
 
         private bool _p1IsSet = false;
 
         public ShipSetup(string p1Name, string p2Name)
         {
             InitializeComponent();
-            
+
             _p1 = new Player(p1Name);
             _p2 = new Player(p2Name);
 
-            _playerGrid = new Grid[]
+            _playerGrid = new Grid[,]
             {
-                GA1, GB1, GC1, GD1, GE1, GF1, GG1, GH1, GI1, GJ1,
-                GA2, GB2, GC2, GD2, GE2, GF2, GG2, GH2, GI2, GJ2,
-                GA3, GB3, GC3, GD3, GE3, GF3, GG3, GH3, GI3, GJ3,
-                GA4, GB4, GC4, GD4, GE4, GF4, GG4, GH4, GI4, GJ4,
-                GA5, GB5, GC5, GD5, GE5, GF5, GG5, GH5, GI5, GJ5,
-                GA6, GB6, GC6, GD6, GE6, GF6, GG6, GH6, GI6, GJ6,
-                GA7, GB7, GC7, GD7, GE7, GF7, GG7, GH7, GI7, GJ7,
-                GA8, GB8, GC8, GD8, GE8, GF8, GG8, GH8, GI8, GJ8,
-                GA9, GB9, GC9, GD9, GE9, GF9, GG9, GH9, GI9, GJ9,
-                GA10, GB10, GC10, GD10, GE10, GF10, GG10, GH10, GI10, GJ10
+                { GA1, GB1, GC1, GD1, GE1, GF1, GG1, GH1, GI1, GJ1 },
+                { GA2, GB2, GC2, GD2, GE2, GF2, GG2, GH2, GI2, GJ2 },
+                { GA3, GB3, GC3, GD3, GE3, GF3, GG3, GH3, GI3, GJ3 },
+                { GA4, GB4, GC4, GD4, GE4, GF4, GG4, GH4, GI4, GJ4 },
+                { GA5, GB5, GC5, GD5, GE5, GF5, GG5, GH5, GI5, GJ5 },
+                { GA6, GB6, GC6, GD6, GE6, GF6, GG6, GH6, GI6, GJ6 },
+                { GA7, GB7, GC7, GD7, GE7, GF7, GG7, GH7, GI7, GJ7 },
+                { GA8, GB8, GC8, GD8, GE8, GF8, GG8, GH8, GI8, GJ8 },
+                { GA9, GB9, GC9, GD9, GE9, GF9, GG9, GH9, GI9, GJ9 },
+                { GA10, GB10, GC10, GD10, GE10, GF10, GG10, GH10, GI10, GJ10 }
             };
             _ships = new Path[] { Carrier, Battleship, Cruiser, Submarine, Destroyer };
 
@@ -57,11 +57,12 @@ namespace TothBence_torpedo
             _placedShips = 0;
             _selectedShip = null;
 
-            for (int i = 0; i < 100; i++)
-            {
-                _playerGrid[i].Tag = "0";
-                _playerGrid[i].Background = new SolidColorBrush(Colors.White);
-            }
+            for (int i = 0; i < 10; i++)
+                for (int j = 0; j < 10; j++)
+                {
+                    _playerGrid[i, j].Tag = "0";
+                    _playerGrid[i, j].Background = new SolidColorBrush(Colors.White);
+                }
 
             foreach (var item in _ships)
             {
@@ -80,58 +81,60 @@ namespace TothBence_torpedo
             while (_placedShips != 5)
             {
                 //horizontal vagy vertical
-                int i = new Random().Next(0, 101);
-                if (new Random().Next(0, 2) == 0 && CanPlaceShip(i, Orientation.Horizontal))
+                int i = new Random().Next(0, 11);
+                int j = new Random().Next(0, 11);
+                if (new Random().Next(0, 2) == 0 && CanPlaceShip(i, j, Orientation.Horizontal))
                 {
-                    PlaceShip(i, Orientation.Horizontal);
+                    PlaceShip(i, j, Orientation.Horizontal);
                     _placedShips++;
                 }
-                else if (CanPlaceShip(i, Orientation.Vertical))
+                else if (CanPlaceShip(i, j, Orientation.Vertical))
                 {
-                    PlaceShip(i, Orientation.Vertical);
+                    PlaceShip(i, j, Orientation.Vertical);
                     _placedShips++;
                 }
             }
 
-            for (int i = 0; i < 100; i++)
-            {
-                _p2.Table[i] = _playerGrid[i].Tag.ToString();
-            }
+            for (int i = 0; i < 10; i++)
+                for (int j = 0; j < 10; j++)
+                {
+                    _p2.Table[i, j] = _playerGrid[i, j].Tag.ToString();
+                }
         }
 
-        private void PlaceShip(int index, Orientation orientation)
+        private void PlaceShip(int indexx, int indexy, Orientation orientation)
         {
             if (orientation == Orientation.Horizontal)
             {
                 //sorvége és eleje
-                if (((_length - 1) > ((index + _length - 1) % 10)))
+                if (((_length - 1) > ((indexx + _length - 1) % 10)))
                 {
-                    index -= (index + _length) % 10;
+                    indexx -= (indexx + _length) % 10;
                 }
 
                 for (int i = 0; i < _length; i++)
                 {
-                    _playerGrid[index + i].Tag = _ship;
-                    _playerGrid[index + i].Background = new SolidColorBrush(Colors.Green);
+                    _playerGrid[indexx + i, indexy].Tag = _ship;
+                    _playerGrid[indexx + i, indexy].Background = new SolidColorBrush(Colors.Green);
                 }
             }
             else
             {
                 //oszlopvége és eleje
-                if (((_length - 1) > (index + ((_length - 1) * 10))))
+                if (((_length - 1) > (indexy + _length - 1 % 10)))
                 {
-                    index -= ((index + _length) * 10);
+                    indexy -= (indexy + _length) % 10;
                 }
 
                 for (int i = 0; i < _length; i++)
                 {
-                    _playerGrid[index + (i * 10)].Tag = _ship;
-                    _playerGrid[index + (i * 10)].Background = new SolidColorBrush(Colors.Green);
-                }       
+                    _playerGrid[indexx, indexy + i].Tag = _ship;
+                    _playerGrid[indexx, indexy + i].Background = new SolidColorBrush(Colors.Green);
+                }
             }
         }
 
-        private bool CanPlaceShip(int index, Orientation orientation)
+        private bool CanPlaceShip(int indexx, int indexy, Orientation orientation)
         {
             int backwardCounter, forwardCounter;
             if (orientation == Orientation.Horizontal)
@@ -143,12 +146,12 @@ namespace TothBence_torpedo
 
                     for (int i = 0; (backwardCounter + forwardCounter) < _length; i++)
                     {
-                        if (index + i < 100 && (_playerGrid[index + i].Tag.Equals("0")))
+                        if (_playerGrid[indexx + i, indexy].Tag.Equals("0"))
                         {
                             forwardCounter++;
                             continue;
                         }
-                        else if ((_playerGrid[index - i].Tag.Equals("0")))
+                        else if ((_playerGrid[indexx - i, indexy].Tag.Equals("0")))
                         {
                             backwardCounter++;
                         }
@@ -162,10 +165,10 @@ namespace TothBence_torpedo
                         throw new IndexOutOfRangeException("Invalid placement!");
                     }
 
-                    index -= backwardCounter;
+                    indexx -= backwardCounter;
 
                     return true;
-                    
+
                 }
                 catch (Exception)
                 {
@@ -182,12 +185,12 @@ namespace TothBence_torpedo
 
                     for (int i = 0; (backwardCounter + forwardCounter) < _length; i++)
                     {
-                        if (index + (i * 10) < 100 && (_playerGrid[index + (i * 10)].Tag.Equals("0")))
+                        if (_playerGrid[indexx, indexy + i].Tag.Equals("0"))
                         {
                             forwardCounter++;
                             continue;
                         }
-                        else if ((_playerGrid[index - (i * 10)].Tag.Equals("0")))
+                        else if ((_playerGrid[indexx, indexy - i].Tag.Equals("0")))
                         {
                             backwardCounter++;
                         }
@@ -199,7 +202,7 @@ namespace TothBence_torpedo
                         throw new IndexOutOfRangeException("Invalid placement!");
                     }
 
-                    index -= (backwardCounter * 10);
+                    indexy -= (backwardCounter * 10);
 
                     return true;
 
@@ -218,10 +221,11 @@ namespace TothBence_torpedo
             {
                 if (_placedShips == 5)
                 {
-                    for (int i = 0; i < 100; i++)
-                    {
-                        _p1.Table[i] = _playerGrid[i].Tag.ToString();
-                    }
+                    for (int i = 0; i < 10; i++)
+                        for (int j = 0; j < 10; j++)
+                        {
+                            _p1.Table[i, j] = _playerGrid[i, j].Tag.ToString();
+                        }
                     RandomAIAllas();
                 }
                 else
@@ -232,21 +236,22 @@ namespace TothBence_torpedo
             }
             else if (_placedShips == 5 && !_p1IsSet)
             {
-                for (int i = 0; i < 100; i++)
-                {
-                    _p1.Table[i] = _playerGrid[i].Tag.ToString();
-                }
+                for (int i = 0; i < 10; i++)
+                    for (int j = 0; j < 10; j++)
+                    {
+                        _p1.Table[i, j] = _playerGrid[i, j].Tag.ToString();
+                    }
                 Reset();
                 _p1IsSet = true;
                 return;
             }
             else if (_placedShips == 5 && _p1IsSet)
             {
-                for (int i = 0; i < 100; i++)
-                {
-                    _p2.Table[i] = _playerGrid[i].Tag.ToString();
-
-                }
+                for (int i = 0; i < 10; i++)
+                    for (int j = 0; j < 10; j++)
+                    {
+                        _p2.Table[i, j] = _playerGrid[i, j].Tag.ToString();
+                    }
             }
             else
             {
@@ -267,7 +272,6 @@ namespace TothBence_torpedo
         {
             Grid senderGrid = (Grid)sender;
 
-
             if (_selectedShip == null)
             {
                 MessageBox.Show("Please select a ship!");
@@ -280,52 +284,57 @@ namespace TothBence_torpedo
                 return;
             }
 
-            int index = Array.IndexOf(_playerGrid, senderGrid);
+            int indexx = Array.IndexOf(_playerGrid, senderGrid) % 10;
+            int indexy = Array.IndexOf(_playerGrid, senderGrid) - indexx;
 
-            Console.WriteLine(index + "\n");
+            Console.WriteLine(indexx + "  " + "\n");
 
-            int backwardCounter, forwardCounter;
+            int/* backwardCounter, */forwardCounter;
 
             if (OrientationHorizonatal.IsChecked == true)
             {
                 try
                 {
-                    backwardCounter = 0;
+                    //backwardCounter = 0;
                     forwardCounter = 0;
 
-                    for (int i = 0; (backwardCounter + forwardCounter) < _length; i++)
+                    for (int i = 0; (/*backwardCounter +*/ forwardCounter) < _length; i++)
                     {
-                        if (index + i < 100 && (_playerGrid[index + i].Tag.Equals("0")))
+                        if (_playerGrid[indexx + i, indexy].Tag.Equals("0"))
                         {
                             forwardCounter++;
+                            //index++;
                             continue;
                         }
-                        else if ((_playerGrid[index - i].Tag.Equals("0")))
+                        if ((_playerGrid[indexx - i, indexy].Tag.Equals("0")))
                         {
-                            backwardCounter++;
+                            //index--;
+                            //backwardCounter++;
+                            continue;
                         }
+                        throw new IndexOutOfRangeException("Invalid placement!");
                     }
 
-                    Console.WriteLine(backwardCounter + "  " + forwardCounter);
+                    Console.WriteLine(forwardCounter);
 
                     //van-e elég hely
-                    if (forwardCounter + backwardCounter < _length)
+                    if (forwardCounter < _length)
                     {
                         throw new IndexOutOfRangeException("Invalid placement!");
                     }
 
-                    index -= backwardCounter;
-                    
+                    //index -= backwardCounter;
+
                     //sorvége és eleje
-                    if (((_length - 1) > ((index + _length - 1) % 10)))
+                    if (((_length - 1) > ((indexx + _length - 1) % 10)))
                     {
-                        index -= (index + _length ) % 10;
+                        indexx -= (indexx + _length) % 10;
                     }
 
                     for (int i = 0; i < _length; i++)
                     {
-                        _playerGrid[index + i].Tag = _ship;
-                        _playerGrid[index + i].Background = new SolidColorBrush(Colors.Green);
+                        _playerGrid[indexx + i, indexy].Tag = _ship;
+                        _playerGrid[indexx + i, indexy].Background = new SolidColorBrush(Colors.Green);
                     }
                 }
                 catch (Exception)
@@ -338,42 +347,47 @@ namespace TothBence_torpedo
             {
                 try
                 {
-                    backwardCounter = 0;
+                    //backwardCounter = 0;
                     forwardCounter = 0;
 
-                    for (int i = 0; (backwardCounter + forwardCounter) < _length; i++)
+                    for (int i = 0; (/*backwardCounter + */forwardCounter) < _length; i++)
                     {
-                        if (index + (i * 10) < 100 && (_playerGrid[index + (i * 10)].Tag.Equals("0")))
+                        if (_playerGrid[indexx, indexy + i].Tag.Equals("0"))
                         {
                             forwardCounter++;
+                            //index += 10;
                             continue;
                         }
-                        else if ((_playerGrid[index - (i * 10)].Tag.Equals("0")))
+                        if ((_playerGrid[indexx, indexy - i].Tag.Equals("0")))
                         {
-                            backwardCounter++;
+                            //index -= 10;
+                            //i--;
+                            //backwardCounter++;
+                            continue;
                         }
+                        throw new IndexOutOfRangeException("Invalid placement!");
                     }
 
-                    //Console.WriteLine(backwardCounter + "  " + forwardCounter);
+                    Console.WriteLine(/*backwardCounter + "  " +*/ forwardCounter);
 
                     //van-e elég hely
-                    if (forwardCounter + backwardCounter < _length)
+                    if (forwardCounter/* + backwardCounter*/ < _length)
                     {
                         throw new IndexOutOfRangeException("Invalid placement!");
                     }
 
-                    index -= (backwardCounter * 10);
+                    //index -= ((backwardCounter) * 10);
 
                     //sorvége és eleje
-                    if (((_length - 1) > (index + ((_length - 1) * 10))))
+                    if ((_length - 1) > (indexy + _length - 1 ))
                     {
-                        index -= ((index + _length) * 10);
+                        indexy -= (indexy + _length) % 10;
                     }
 
                     for (int i = 0; i < _length; i++)
                     {
-                        _playerGrid[index + (i * 10)].Tag = _ship;
-                        _playerGrid[index + (i * 10)].Background = new SolidColorBrush(Colors.Green);
+                        _playerGrid[indexx, indexy + i].Tag = _ship;
+                        _playerGrid[indexx, indexy + i].Background = new SolidColorBrush(Colors.Green);
                     }
                 }
                 catch (Exception)

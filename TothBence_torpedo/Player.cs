@@ -18,9 +18,9 @@
             set { _score = value; }
         }
 
-        private string[] _table;
+        private string[,] _table;
 
-        public string[] Table
+        public string[,] Table
         {
             get { return _table; }
             set { _table = value; }
@@ -30,7 +30,7 @@
         {
             _name = name;
             _score = 0;
-            _table = new string[100];
+            _table = new string[10, 10];
         }
     }
 }
